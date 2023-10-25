@@ -17,3 +17,10 @@ class CreateNewProduct(CreateAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
     permission_classes = [IsAdminUser]
+
+
+class UpdateProductById(UpdateAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+    permission_classes = [IsAdminUser]
+    lookup_field = 'id'
