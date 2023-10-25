@@ -80,3 +80,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.who
+
+
+class Cart(models.Model):
+    from_user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    products = models.CharField(max_length=90)
+
+    class Meta:
+        db_table = 'cart'
+
+    def __str__(self):
+        return self.from_user
