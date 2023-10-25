@@ -63,3 +63,20 @@ class Products(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Profile(models.Model):
+    identity = (
+        ('customer', 'customer'),
+        ('deliver', 'deliver')
+    )
+    phone_number = models.BigIntegerField()
+    profile_img = models.ImageField(upload_to='profile_images')
+    who = models.CharField(max_length=40, choices=identity)
+    telegram_username = models.CharField(max_length=90)
+
+    class Meta:
+        db_table = 'profile'
+
+    def __str__(self):
+        return self.who
