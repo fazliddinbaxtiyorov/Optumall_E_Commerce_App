@@ -11,3 +11,9 @@ from .serializers import UserSerializer, ProfileSerializer, ProductsSerializer, 
 class ShowAllProducts(ListAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
+
+
+class CreateNewProduct(CreateAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+    permission_classes = [IsAdminUser]
