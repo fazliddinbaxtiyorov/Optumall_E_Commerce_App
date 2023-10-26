@@ -24,3 +24,10 @@ class UpdateProductById(UpdateAPIView):
     serializer_class = ProductsSerializer
     permission_classes = [IsAdminUser]
     lookup_field = 'id'
+
+
+class DeleteProductById(DestroyAPIView):
+    queryset = Products
+    serializer_class = ProductsSerializer
+    lookup_field = 'id'
+    permission_classes = [IsAdminUser]
