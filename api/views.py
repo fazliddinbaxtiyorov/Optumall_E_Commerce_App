@@ -26,6 +26,13 @@ class UpdateProductById(UpdateAPIView):
     lookup_field = 'id'
 
 
+class CategoryProductResultView(ListAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['category']
+
+
 class DeleteProductById(DestroyAPIView):
     queryset = Products
     serializer_class = ProductsSerializer
