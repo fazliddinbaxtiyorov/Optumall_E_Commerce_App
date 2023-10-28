@@ -31,3 +31,10 @@ class DeleteProductById(DestroyAPIView):
     serializer_class = ProductsSerializer
     lookup_field = 'id'
     permission_classes = [IsAdminUser]
+
+
+class Category(APIView):
+    def get(self, request, category):
+        products = Products.objects.filter(category=category)
+        serializer = ProductsSerializer(products, many=True)
+        return Response(serializer.data)
