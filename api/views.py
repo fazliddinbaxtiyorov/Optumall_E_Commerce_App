@@ -38,3 +38,10 @@ class Category(APIView):
         products = Products.objects.filter(category=category)
         serializer = ProductsSerializer(products, many=True)
         return Response(serializer.data)
+
+
+class SearchByTitle(ListAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title']
