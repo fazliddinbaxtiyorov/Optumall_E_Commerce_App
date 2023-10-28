@@ -1,5 +1,8 @@
 from rest_framework.generics import ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAdminUser
+from rest_framework.views import APIView
+from rest_framework import filters
+from rest_framework.response import Response
 
 from .models import Users, Profile, Products, Cart
 from .serializers import UserSerializer, ProfileSerializer, ProductsSerializer, CartSerializer
